@@ -14,4 +14,8 @@ by [@drzejzi](https://github.com/Drzejzi). It's meant to be run standalone (i.e.
 
 * MediaWiki-based wiki
 * [gource](https://github.com/acaudwell/Gource) for visualizing the history (will create a set of images)
-* [ffmpeg](http://www.ffmpeg.org/) or [avconv](http://libav.org/avconv.html) to create a movie from visualization images
+* [ffmpeg](http://www.ffmpeg.org/) or [avconv](http://libav.org/avconv.html) to convert a set of images to a video file
+
+## Read more
+
+* [gource - recording Videos](http://code.google.com/p/gource/wiki/Videos)
