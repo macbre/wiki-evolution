@@ -16,6 +16,14 @@ by [@drzejzi](https://github.com/Drzejzi). It's meant to be run standalone (i.e.
 * [gource](https://github.com/acaudwell/Gource) for visualizing the history (will create a set of images)
 * [ffmpeg](http://www.ffmpeg.org/) or [avconv](http://libav.org/avconv.html) to convert a set of images to a video file
 
+Running
+
+```
+sudo apt-get install gource ffmpeg
+```
+
+should be enough on Debian-powered machines
+
 ## Read more
 
 * [gource - recording Videos](http://code.google.com/p/gource/wiki/Videos)
