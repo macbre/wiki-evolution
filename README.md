@@ -13,5 +13,5 @@ by [@drzejzi](https://github.com/Drzejzi). It's meant to be run standalone (i.e.
 ## Requirements
 
 * MediaWiki-based wiki
-* [gource](https://github.com/acaudwell/Gource) for visualizing the history
-* [avconv](http://libav.org/avconv.html) to create a movie from visualization images
+* [gource](https://github.com/acaudwell/Gource) for visualizing the history (will create a set of images)
+* [ffmpeg](http://www.ffmpeg.org/) or [avconv](http://libav.org/avconv.html) to create a movie from visualization images
