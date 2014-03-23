@@ -15,14 +15,21 @@ by [@drzejzi](https://github.com/Drzejzi). It's meant to be run standalone (i.e.
 * MediaWiki-based wiki
 * [gource](https://github.com/acaudwell/Gource) for visualizing the history (will create a set of images)
 * [ffmpeg](http://www.ffmpeg.org/) or [avconv](http://libav.org/avconv.html) to convert a set of images to a video file
+* [xvfb](http://www.x.org/releases/X11R7.6/doc/man/man1/Xvfb.1.xhtml) to run gource in a virtual X server environment
 
 Running
 
 ```
-sudo apt-get install gource ffmpeg
+sudo apt-get install gource ffmpeg xvfb
 ```
 
 should be enough on Debian-powered machines
+
+## Examples
+
+* [Poznań Wiki](http://www.youtube.com/watch?v=QE32HghV8-I)
+* [Inciclopedia](http://www.youtube.com/watch?v=-AsGVA3HlSU)
+* [German GTA Wiki](http://www.youtube.com/watch?v=a3NbIf3i36g)
 
 ## Read more
 
