@@ -30,6 +30,8 @@ should be enough on Debian-powered machines
 * [Poznań Wiki](http://www.youtube.com/watch?v=QE32HghV8-I)
 * [Inciclopedia](http://www.youtube.com/watch?v=-AsGVA3HlSU)
 * [German GTA Wiki](http://www.youtube.com/watch?v=a3NbIf3i36g)
+* [Muppet Wiki](http://www.youtube.com/watch?v=P-ciO2CcIq0)
+* [Kill Bill Wiki](http://www.youtube.com/watch?v=Xbhg1NDIQMs)
 
 ## Read more
 
