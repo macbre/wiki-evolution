@@ -37,4 +37,23 @@ Each revision is tagged with:
 
 ## Visualization
 
-TODO
+```sh
+#!/bin/sh
+
+resolution=1360x720
+seconds_per_day=0.01
+auto_skip_seconds=0.1
+elasticity=0.05
+output=gource.mp4
+
+wiki-evolution --wiki <PATH TO api.php> | xvfb-run -a -s "-screen 0 $resolutionx24" gource \
+  --log-format custom - \
+  --seconds-per-day $seconds_per_day \
+  --auto-skip-seconds $auto_skip_seconds \
+  --elasticity $elasticity \
+  --multi-sampling --stop-at-end -b 000000  --hide filenames,dirnames,progress,mouse --user-friction .2 \
+  --background-image background.png --logo  wiki_logo.png --user-image-dir $wikiname/avatars \
+  -$resolution \
+  -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - \
+  -vcodec libx264 -preset ultrafast -pix_fmt yuv420p -crf 1 -threads 0 -bf 0 $output
+```
