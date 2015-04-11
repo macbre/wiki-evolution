@@ -4,7 +4,8 @@
   "description": "Visualize evolution of your MediaWiki based site",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "jshint *.js "
   },
   "repository": {
     "type": "git",
@@ -25,5 +26,14 @@
   "homepage": "https://github.com/macbre/wiki-evolution",
   "dependencies": {
     "nodemw": "^0.5.1"
+  },
+  "devDependencies": {
+    "jshint": "^2.6.3"
+  },
+  "jshintConfig": {
+    "node": true,
+    "-W030": false,
+    "-W084": false,
+    "strict": true
   }
 }
