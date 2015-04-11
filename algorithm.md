@@ -13,9 +13,9 @@ How does `wiki-evolution` generate the visualization.
 * number of pages
 * number of edits
 
-[allcategories](http://nordycka.wikia.com/api.php?action=query&list=allcategories&acprop=size&acmin=200&aclimit=500)
+[Mostlinkedcategories](http://nordycka.wikia.com/api.php?action=query&list=querypage&qppage=Mostlinkedcategories&qplimit=500)
 will give us the list of the biggest categories. It will be used to generate a "virtual path" for each article in
-revision log. `acmin` is calculated as `2% * (number of pages)`.
+revision log. `value` field threshold is calculated as `2% * (number of pages)`.
 
 #### B. Get all revisions for all pages
 
