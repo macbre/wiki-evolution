@@ -17,9 +17,11 @@ How does `wiki-evolution` generate the visualization.
 will give us the list of the biggest categories. It will be used to generate a "virtual path" for each article in
 revision log. `acmin` is calculated as `2% * (number of pages)`.
 
-#### B. Get all revisions in chronological order
+#### B. Get all revisions for all pages
 
-[Revisions API entry point](http://nordycka.wikia.com/api.php?action=query&revids=2220|2252|2081|2269&prop=categories|info|revisions&rvprop=ids|timestamp|size|flags|comment|user)
+[Pages list API](http://nordycka.wikia.com/api.php?action=query&list=allpages&aplimit=500)
+
+[Page's revisions API](http://nordycka.wikia.com/api.php?action=query&prop=categories|info|revisions&rvprop=ids|timestamp|size|flags|comment|user&titles=Wyspy%20Owcze&rvlimit=500)
 
 Each revision is tagged with:
 
