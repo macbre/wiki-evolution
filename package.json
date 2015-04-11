@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "description": "Visualize evolution of your MediaWiki based site",
   "main": "index.js",
+  "bin": {
+    "wiki-evolution": "bin/wiki-evolution.sh",
+    "wiki2gource": "bin/wiki2gource.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "jshint *.js "
+    "lint": "jshint bin/*.js "
   },
   "repository": {
     "type": "git",
