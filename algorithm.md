@@ -19,6 +19,8 @@ revision log. `acmin` is calculated as `2% * (number of pages)`.
 
 #### B. Get all revisions in chronological order
 
+[Revisions API entry point](http://nordycka.wikia.com/api.php?action=query&revids=2220|2252|2081|2269&prop=categories|info|revisions&rvprop=ids|timestamp|size|flags|comment|user)
+
 Each revision is tagged with:
 
 * **the type of a contribution**: (A)dded, (M)odified or (D)eleted
