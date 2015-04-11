@@ -1,0 +1,29 @@
+{
+  "name": "wiki-evolution",
+  "version": "0.1.0",
+  "description": "Visualize evolution of your MediaWiki based site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/macbre/wiki-evolution.git"
+  },
+  "keywords": [
+    "wiki",
+    "evolution",
+    "visualize",
+    "gource",
+    "mediawiki"
+  ],
+  "author": "macbre <maciej.brencz@gmail.com> (http://macbre.net)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/macbre/wiki-evolution/issues"
+  },
+  "homepage": "https://github.com/macbre/wiki-evolution",
+  "dependencies": {
+    "nodemw": "^0.5.1"
+  }
+}
