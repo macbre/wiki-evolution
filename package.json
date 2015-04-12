@@ -8,8 +8,8 @@
     "wiki2gource": "bin/wiki2gource.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "jshint bin/*.js "
+    "test": "mocha -R spec",
+    "lint": "jshint *.js bin/*.js test/*.js"
   },
   "repository": {
     "type": "git",
@@ -32,7 +32,8 @@
     "nodemw": "^0.5.1"
   },
   "devDependencies": {
-    "jshint": "^2.6.3"
+    "jshint": "^2.6.3",
+    "mocha": "^2.2.4"
   },
   "jshintConfig": {
     "node": true,
