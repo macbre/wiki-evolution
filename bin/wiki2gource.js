@@ -34,6 +34,10 @@ client.getAllPages(function(err, pages) {
 
 	// get top 500 categories
 	client.getQueryPage('Mostlinkedcategories', function(err, res) {
+		if (err) {
+			process.exit(3);
+		}
+
 		var topCategories = res.map(function(item) {
 			// <page value="11" ns="14" title="Kategoria:Atlantic Airways" />
 			return item.title.split(':')[1];
@@ -47,7 +51,7 @@ client.getAllPages(function(err, pages) {
 		pages.forEach(function(page) {
 			client.getArticleRevisions(page.title, function(err, revisions) {
 				if (err) {
-					process.exit(3);
+					process.exit(4);
 				}
 
 				// get article categories
@@ -57,6 +61,10 @@ client.getAllPages(function(err, pages) {
 					prop: 'categories',
 					titles: page.title
 				}, function(err, data) {
+					if (err) {
+						process.exit(5);
+					}
+
 					var categories = data.pages[page.pageid].categories.map(function(cat) {
 							// { ns: 14, title: 'Kategoria:XX wiek' }
 							return cat.title.split(':')[1];
@@ -66,7 +74,7 @@ client.getAllPages(function(err, pages) {
 					//console.log(['categories', categories]);
 					articlePath = ranker.getArticlePath(page.title, categories);
 
-					// console.error('"%s" mapped as "%s"...', page.title, articlePath);
+					console.error('%s...', articlePath);
 
 					// generate entries for all revisions
 					revisions.forEach(function(rev) {

@@ -17,7 +17,7 @@ function CategoriesRanker(topCategories) {
 
 CategoriesRanker.prototype.getArticlePath = function(title, categories, limit) {
 	var path = [];
-	limit = limit || 3;
+	limit = limit || 5;
 
 	this.topCategories.forEach(function(cat) {
 		if (categories.indexOf(cat) > -1) {
