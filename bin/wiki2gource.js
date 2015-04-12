@@ -6,8 +6,10 @@
 
 'use strict';
 
-var nodemw = require('nodemw'),
+var async = require('async'),
+	nodemw = require('nodemw'),
 	CategoriesRanker = require('../').CategoriesRanker,
+	ColorsRanker = require('../').ColorsRanker,
 	client;
 
 var server = process.argv[2] || false;
@@ -23,32 +25,56 @@ client = new nodemw({
 	debug: false
 });
 
-// TODO: use promises and a single callback when all data is available
-// get all pages
-var edits = [];
+// get the wiki-specific data
+// @see https://github.com/caolan/async#paralleltasks-callback
+console.error('Getting wiki statistics...');
 
-client.getAllPages(function(err, pages) {
-	if (err) {
-		process.exit(2);
-	}
+async.parallel(
+	{
+		// get wiki statistics
+		// @see http://nordycka.wikia.com/api.php?action=query&meta=siteinfo&siprop=general%7Cstatistics
+		stats: function (callback) {
+			client.api.call({
+				action: 'query',
+				meta: 'siteinfo',
+				siprop: [/* 'general', */ 'statistics'].join('|')
+			}, callback);
+		},
 
-	// get top 500 categories
-	client.getQueryPage('Mostlinkedcategories', function(err, res) {
+		// get the list of all pages
+		pages: function (callback) {
+			client.getAllPages(callback);
+		},
+
+		// get the list of top categories
+		topCategories: function (callback) {
+			client.getQueryPage('Mostlinkedcategories', callback);
+		}
+	},
+	function(err, results) {
+		var edits = [];
+
 		if (err) {
-			process.exit(3);
+			process.exit(2);
 		}
 
-		var topCategories = res.map(function(item) {
+		// results post-processing
+		results.stats = results.stats[0].statistics;
+
+		results.topCategories = results.topCategories.map(function(item) {
 			// <page value="11" ns="14" title="Kategoria:Atlantic Airways" />
 			return item.title.split(':')[1];
 		}).slice(0, 500);
 
-		//console.log(['topCategories', topCategories]);
+		console.error('This wikis has %d edits on %d articles', results.stats.edits, results.pages.length);
+		console.error('\nFetching revisions for all articles...\n');
 
-		var ranker = new CategoriesRanker(topCategories);
+		// set up rankers
+		var categoriesRanker = new CategoriesRanker(results.topCategories),
+			colorsRanker = new ColorsRanker(results.stats, '#4c4b4b', '#70b8ff');
 
 		// fetch revisions for all pages
-		pages.forEach(function(page) {
+		results.pages.forEach(function(page) {
 			client.getArticleRevisions(page.title, function(err, revisions) {
 				if (err) {
 					process.exit(4);
@@ -65,16 +91,17 @@ client.getAllPages(function(err, pages) {
 						process.exit(5);
 					}
 
-					var categories = data.pages[page.pageid].categories.map(function(cat) {
+					var categories = (data.pages[page.pageid].categories || []).map(function(cat) {
 							// { ns: 14, title: 'Kategoria:XX wiek' }
 							return cat.title.split(':')[1];
 						}),
-						articlePath;
+						articlePath,
+						color;
 
-					//console.log(['categories', categories]);
-					articlePath = ranker.getArticlePath(page.title, categories);
+					articlePath = '/' + categoriesRanker.getArticlePath(page.title, categories);
+					color = colorsRanker.getColorForEdit(revisions.length - 1);
 
-					console.error('%s...', articlePath);
+					console.error('%s [%d edits]...', articlePath, revisions.length);
 
 					// generate entries for all revisions
 					revisions.forEach(function(rev) {
@@ -82,8 +109,8 @@ client.getAllPages(function(err, pages) {
 							timestamp: Date.parse(rev.timestamp) / 1000,
 							author: rev.user,
 							type: (rev.parentid === 0) ? 'A' : 'M', // article created / edited
-							path: '/' + articlePath,
-							color: '#ffffff'
+							path: articlePath,
+							color: color
 						};
 						edits.push(edit);
 
@@ -99,5 +126,5 @@ client.getAllPages(function(err, pages) {
 				});
 			});
 		});
-	});
-});
+	}
+);
