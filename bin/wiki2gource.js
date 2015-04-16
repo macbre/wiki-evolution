@@ -19,9 +19,19 @@ if (!server) {
 	process.exit(1);
 }
 
+// use a proper path based on MW provider
+var path;
+
+if (server.match(/\.wikia\.com$/)) {
+	path = ''; // wikia.com
+}
+else {
+	path = '/w'; // Wikipedia default
+}
+
 client = new nodemw({
 	server: server,
-	path: '',
+	path: path,
 	debug: false
 });
 
