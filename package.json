@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "description": "Visualize evolution of your MediaWiki based site",
   "main": "index.js",
+  "bin": {
+    "wiki-evolution": "bin/wiki-evolution.sh",
+    "wiki2gource": "bin/wiki2gource.js"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "jshint *.js "
+    "test": "mocha -R spec",
+    "lint": "jshint *.js bin/*.js test/*.js"
   },
   "repository": {
     "type": "git",
@@ -25,10 +29,13 @@
   },
   "homepage": "https://github.com/macbre/wiki-evolution",
   "dependencies": {
+    "async": "^0.9.0",
+    "color": "^0.8.0",
     "nodemw": "^0.5.1"
   },
   "devDependencies": {
-    "jshint": "^2.6.3"
+    "jshint": "^2.6.3",
+    "mocha": "^2.2.4"
   },
   "jshintConfig": {
     "node": true,

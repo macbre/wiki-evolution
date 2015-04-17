@@ -1,7 +1,39 @@
 wiki-evolution
 ==============
 
-Visualize evolution of your MediaWiki based site
+Visualize evolution of your [MediaWiki](https://www.mediawiki.org/wiki/MediaWiki) based site
+
+## Requirements
+
+* MediaWiki-based wiki
+* [gource](https://github.com/acaudwell/Gource) for visualizing the history (will create a set of images)
+* [avconv](http://libav.org/avconv.html) to convert a set of images to a video file
+* [xvfb](http://www.x.org/releases/X11R7.6/doc/man/man1/Xvfb.1.xhtml) to run gource in a virtual X server environment
+* [nodejs](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager) with `npm` installed
+
+Running
+
+```
+sudo apt-get install gource libav-tools xvfb
+```
+
+should be enough on Debian-powered machines
+
+## How to install and run it?
+
+```
+npm install -g wiki-evolution
+```
+
+and then run `wiki-evolution <wiki domain>`, for instance:
+
+```
+wiki-evolution poznan.wikia.com
+wiki-evolution fo.wikipedia.org
+```
+
+This will install `wiki-evolution` npm module globally
+and render the visualization for [poznan.wikia.com](http://poznan.wikia.com) and [Faroese Wikipedia](http://fo.wikipedia.org).
 
 ## Genesis
 
@@ -10,22 +42,7 @@ developed during [Wikia 2012 internship programme](http://community.wikia.com/wi
 by [@drzejzi](https://github.com/Drzejzi). It's meant to be run standalone (i.e. outside MediaWiki stack) and generate
 [wonderful videos](https://www.youtube.com/watch?v=QE32HghV8-I) of how your site evolved from its very beginning.
 
-## Requirements
-
-* MediaWiki-based wiki
-* [gource](https://github.com/acaudwell/Gource) for visualizing the history (will create a set of images)
-* [ffmpeg](http://www.ffmpeg.org/) or [avconv](http://libav.org/avconv.html) to convert a set of images to a video file
-* [xvfb](http://www.x.org/releases/X11R7.6/doc/man/man1/Xvfb.1.xhtml) to run gource in a virtual X server environment
-
-Running
-
-```
-sudo apt-get install gource ffmpeg xvfb
-```
-
-should be enough on Debian-powered machines
-
-## Examples
+### Examples
 
 * [Poznań Wiki](http://www.youtube.com/watch?v=QE32HghV8-I)
 * [Inciclopedia](http://www.youtube.com/watch?v=-AsGVA3HlSU)
