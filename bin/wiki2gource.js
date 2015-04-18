@@ -12,6 +12,14 @@ var async = require('async'),
 	ColorsRanker = require('../').ColorsRanker,
 	client;
 
+// general settings
+var config = {
+	categoriesLimit: -1,
+	nodeColorFrom: '#4c4b4b',
+	nodeColorTo: '#70b8ff'
+};
+
+// init the MediaWiki client
 var server = process.argv[2] || false;
 
 if (!server) {
@@ -97,7 +105,7 @@ async.parallel(
 
 		// set up rankers
 		var categoriesRanker = new CategoriesRanker(results.topCategories),
-			colorsRanker = new ColorsRanker(results.stats, '#4c4b4b', '#70b8ff');
+			colorsRanker = new ColorsRanker(results.stats, config.nodeColorFrom, config.nodeColorTo);
 
 		console.error('\nFetching revisions for all articles...\n');
 
@@ -126,7 +134,7 @@ async.parallel(
 						articlePath,
 						color;
 
-					articlePath = '/' + categoriesRanker.getArticlePath(page.title, categories);
+					articlePath = '/' + categoriesRanker.getArticlePath(page.title, categories, config.categoriesLimit);
 					color = colorsRanker.getColorForEdit(revisions.length - 1);
 
 					console.error('%s [%d edits]...', articlePath, revisions.length);

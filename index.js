@@ -22,7 +22,7 @@ function CategoriesRanker(topCategories) {
  *
  * @param {string} title
  * @param {Array} categories
- * @param {int} [limit=5]
+ * @param {int} [limit=5] -1 for no limit
  * @returns {string}
  */
 CategoriesRanker.prototype.getArticlePath = function(title, categories, limit) {
@@ -36,7 +36,9 @@ CategoriesRanker.prototype.getArticlePath = function(title, categories, limit) {
 	});
 
 	// apply a limit
-	path = path.slice(0, limit);
+	if (limit > 0) {
+		path = path.slice(0, limit);
+	}
 
 	path.push(title);
 	return path.join('/');
