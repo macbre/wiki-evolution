@@ -26,6 +26,13 @@ describe('CategoriesRanker', function() {
 		);
 	});
 
+	it('should obey no limit', function() {
+		assert.equal(
+			ranker.getArticlePath('article', ['misc', '123', 'foo'], -1),
+			'foo/misc/article'
+		);
+	});
+
 	it('should handle articles with no categories', function() {
 		assert.equal(
 			ranker.getArticlePath('article', [], 1),
