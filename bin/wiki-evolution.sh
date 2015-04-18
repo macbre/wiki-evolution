@@ -11,9 +11,9 @@ echo
 
 # settings
 resolution=1360x720
-seconds_per_day=0.01
-auto_skip_seconds=0.1
-elasticity=0.05
+seconds_per_day=0.04
+auto_skip_seconds=0.05
+elasticity=0.01
 fps=25
 bitrate=4000K
 extension=webm
@@ -45,6 +45,8 @@ fi
 echo
 echo "Rendering $extension at $resolution @ $fps fps to $output..."
 echo
+
+# TODO: fetch custom backgrounds and logos
 
 # call gource
 nice -n 20 xvfb-run -a -s "-screen 0 $resolution""x16" gource \
