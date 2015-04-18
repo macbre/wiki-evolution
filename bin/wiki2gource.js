@@ -71,17 +71,35 @@ async.parallel(
 		// results post-processing
 		results.stats = results.stats[0].statistics;
 
-		results.topCategories = results.topCategories.map(function(item) {
-			// <page value="11" ns="14" title="Kategoria:Atlantic Airways" />
-			return item.title.split(':')[1];
-		}).slice(0, 500);
+		// get top 1000 categories and filter out the smallest ones (with less than 2% of articles)
+		var categoryMinValue = results.pages.length / 50;
+		categoryMinValue = Math.min(categoryMinValue, 50);
+		categoryMinValue = Math.max(categoryMinValue, 5);
 
+		results.topCategories = results.topCategories.
+			slice(0, 1000).
+			filter(function (item) {
+				if (item.value < categoryMinValue) {
+					//console.error("Filtered out %s category (too small - %d articles)", item.title, item.value);
+					return false;
+				}
+
+				return true;
+			}).
+			map(function (item) {
+				// <page value="11" ns="14" title="Kategoria:Atlantic Airways" />
+				return item.title.split(':')[1];
+			});
+
+		// print out some stats
 		console.error('This wikis has %d edits on %d articles', results.stats.edits, results.pages.length);
-		console.error('\nFetching revisions for all articles...\n');
+		console.error('Using %d categories to build a wiki tree', results.topCategories.length);
 
 		// set up rankers
 		var categoriesRanker = new CategoriesRanker(results.topCategories),
 			colorsRanker = new ColorsRanker(results.stats, '#4c4b4b', '#70b8ff');
+
+		console.error('\nFetching revisions for all articles...\n');
 
 		// fetch revisions for all pages
 		results.pages.forEach(function(page) {
