@@ -15,7 +15,7 @@ seconds_per_day=0.04
 auto_skip_seconds=0.05
 elasticity=0.01
 fps=25
-bitrate=4000K
+bitrate=5000K
 extension=webm
 
 # environment
@@ -59,7 +59,8 @@ nice -n 20 xvfb-run -a -s "-screen 0 $resolution""x16" gource \
 	-b 000000 \
 	--hide dirnames,progress,mouse \
 	--user-friction .2 \
-	--font-size 12 --title "wiki-evolution for $wikiname" \
+	--font-size 16 \
+	--title "wiki-evolution for $wikiname" \
 	-$resolution \
 	--output-ppm-stream - \
 	--output-framerate $fps \
