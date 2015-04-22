@@ -48,6 +48,10 @@ by [@drzejzi](https://github.com/Drzejzi). It's meant to be run standalone (i.e.
 
 ### Examples
 
+[![Poznańska Wiki](http://vignette3.wikia.nocookie.net/poznan/images/6/61/WikiEvolution_-_Pozna%C5%84ska_Wiki_2015/revision/latest?path-prefix=pl)](https://www.youtube.com/watch?v=9Lyk1IxvFaw)
+
+
+
 * [Poznań Wiki](http://www.youtube.com/watch?v=QE32HghV8-I)
 * [Inciclopedia](http://www.youtube.com/watch?v=-AsGVA3HlSU)
 * [German GTA Wiki](http://www.youtube.com/watch?v=a3NbIf3i36g)
