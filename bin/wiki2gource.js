@@ -50,13 +50,8 @@ console.error('Getting wiki statistics...');
 async.parallel(
 	{
 		// get wiki statistics
-		// @see http://nordycka.wikia.com/api.php?action=query&meta=siteinfo&siprop=general%7Cstatistics
 		stats: function (callback) {
-			client.api.call({
-				action: 'query',
-				meta: 'siteinfo',
-				siprop: [/* 'general', */ 'statistics'].join('|')
-			}, callback);
+			client.getSiteStats(callback);
 		},
 
 		// get the list of all pages
@@ -75,9 +70,6 @@ async.parallel(
 		if (err) {
 			process.exit(2);
 		}
-
-		// results post-processing
-		results.stats = results.stats[0].statistics;
 
 		// get top 1000 categories and filter out the smallest ones (with less than 2% of articles)
 		var categoryMinValue = results.pages.length / 50;
@@ -117,21 +109,12 @@ async.parallel(
 				}
 
 				// get article categories
-				// @see http://nordycka.wikia.com/api.php?action=query&prop=categories&titles=Wyspy%20Owcze
-				client.api.call({
-					action: 'query',
-					prop: 'categories',
-					titles: page.title
-				}, function(err, data) {
+				client.getArticleCategories(page.title, function(err, categories) {
 					if (err) {
 						process.exit(5);
 					}
 
-					var categories = (data.pages[page.pageid].categories || []).map(function(cat) {
-							// { ns: 14, title: 'Kategoria:XX wiek' }
-							return cat.title.split(':')[1];
-						}),
-						articlePath,
+					var articlePath,
 						color;
 
 					articlePath = '/' + categoriesRanker.getArticlePath(page.title, categories, config.categoriesLimit);
