@@ -39,6 +39,14 @@ wiki-evolution fo.wikipedia.org
 This will install `wiki-evolution` npm module globally
 and render the visualization for [poznan.wikia.com](http://poznan.wikia.com) and [Faroese Wikipedia](http://fo.wikipedia.org).
 
+For large wikis with a long edits history you can include every N-th edit only:
+
+```
+EDITS_COMPRESSION=150 wiki-evolution muppet.wikia.com
+```
+
+This will include only the first, 150th, 300th, ... edit of each article.
+
 ## Genesis
 
 Port of [WikiEvolution extension](https://github.com/Wikia/app/tree/dev/extensions/wikia/hacks/WikiEvolution)
