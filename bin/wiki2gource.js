@@ -95,7 +95,7 @@ async.parallel(
 			}).
 			map(function (item) {
 				// <page value="11" ns="14" title="Kategoria:Atlantic Airways" />
-				return item.title.split(':')[1];
+				return item.title.replace(/^[^:]+:/, '');
 			});
 
 		// print out some stats
@@ -126,7 +126,7 @@ async.parallel(
 
 					// remove category namespace prefix
 					categories = categories.map(function (item) {
-						return item.split(':')[1];
+						return item.replace(/^[^:]+:/, '');
 					});
 
 					articlePath = '/' + categoriesRanker.getArticlePath(page.title, categories, config.categoriesLimit);
