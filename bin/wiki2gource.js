@@ -50,6 +50,10 @@ client = new nodemw({
 // @see https://github.com/caolan/async#paralleltasks-callback
 console.error('Getting wiki statistics...');
 
+if (editsCompression) {
+	console.error('Edits compression of %d will be applied', editsCompression);
+}
+
 async.parallel(
 	{
 		// get wiki statistics
