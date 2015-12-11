@@ -22,8 +22,11 @@ var config = {
 // init the MediaWiki client
 var server = process.argv[2] || false;
 
+// for large wikis allow to include every N-th edit only
+var editsCompression = parseInt(process.argv[3], 10) || 0;
+
 if (!server) {
-	console.error('Usage: wiki2gource <wiki domain>');
+	console.error('Usage: wiki2gource <wiki domain> [editsCompression]');
 	process.exit(1);
 }
 
@@ -121,6 +124,14 @@ async.parallel(
 					color = colorsRanker.getColorForEdit(revisions.length - 1);
 
 					console.error('%s [%d edits]...', articlePath, revisions.length);
+
+					if (editsCompression) {
+						revisions = revisions.filter(function(item, index) {
+							return index % editsCompression === 0;
+						});
+
+						console.error('%s [%d edits after compression]...', articlePath, revisions.length);
+					}
 
 					// generate entries for all revisions
 					revisions.forEach(function(rev) {
