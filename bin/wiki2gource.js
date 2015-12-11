@@ -124,6 +124,11 @@ async.parallel(
 					var articlePath,
 						color;
 
+					// remove category namespace prefix
+					categories = categories.map(function (item) {
+						return item.split(':')[1];
+					});
+
 					articlePath = '/' + categoriesRanker.getArticlePath(page.title, categories, config.categoriesLimit);
 					color = colorsRanker.getColorForEdit(revisions.length - 1);
 
