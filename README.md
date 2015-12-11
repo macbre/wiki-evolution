@@ -47,6 +47,18 @@ EDITS_COMPRESSION=150 wiki-evolution muppet.wikia.com
 
 This will include only the first, 150th, 300th, ... edit of each article.
 
+## Debug mode
+
+Run the `wiki-evolution` script with `DEBUG=1` env variable set to enable `nodemw` library debug mode:
+
+```
+DEBUG=1 EDITS_COMPRESSION=150 wiki-evolution muppet.wikia.com
+...
+debug:   API action: query
+debug:   GET <http://muppet.wikia.com/api.php?action=query&prop=revisions&rvprop=ids%7Ctimestamp%7Csize%7Cflags%7Ccomment%7Cuser&rvdir=newer&rvlimit=5000&titles=X&continue=&format=json>
+...
+```
+
 ## Genesis
 
 Port of [WikiEvolution extension](https://github.com/Wikia/app/tree/dev/extensions/wikia/hacks/WikiEvolution)
