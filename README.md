@@ -72,12 +72,13 @@ by [@drzejzi](https://github.com/Drzejzi). It's meant to be run standalone (i.e.
 
 
 
-* [Poznań Wiki](http://www.youtube.com/watch?v=QE32HghV8-I)
-* [Inciclopedia](http://www.youtube.com/watch?v=-AsGVA3HlSU)
-* [German GTA Wiki](http://www.youtube.com/watch?v=a3NbIf3i36g)
-* [Muppet Wiki](http://www.youtube.com/watch?v=P-ciO2CcIq0)
-* [Kill Bill Wiki](http://www.youtube.com/watch?v=Xbhg1NDIQMs)
-* [Marvel Database](http://www.youtube.com/watch?v=l6tggAc8aVM)
+* [Poznań Wiki](https://www.youtube.com/watch?v=QE32HghV8-I)
+* [Inciclopedia](https://www.youtube.com/watch?v=-AsGVA3HlSU)
+* [German GTA Wiki](https://www.youtube.com/watch?v=a3NbIf3i36g)
+* [Muppet Wiki](https://www.youtube.com/watch?v=P-ciO2CcIq0)
+* [Kill Bill Wiki](https://www.youtube.com/watch?v=Xbhg1NDIQMs)
+* [Marvel Database](https://www.youtube.com/watch?v=l6tggAc8aVM)
+* [Polish GTA Wiki](https://www.youtube.com/watch?v=T3hlgdBsX10)
 
 ## Read more
 
