@@ -64,7 +64,7 @@ nice -n 20 xvfb-run -a -s "-screen 0 $resolution""x16" gource \
 	-$resolution \
 	--output-ppm-stream - \
 	--output-framerate $fps \
-	$input | avconv -y -r $fps -f image2pipe -vcodec ppm -i - -b $bitrate $output
+	$input | ffmpeg -y -r $fps -f image2pipe -vcodec ppm -i - -b $bitrate $output
 
 echo
 echo "Done, enjoy!"
