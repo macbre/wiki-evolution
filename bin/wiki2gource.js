@@ -33,8 +33,8 @@ if (!server) {
 // use a proper path based on MW provider
 var path;
 
-if (server.match(/\.wikia\.com$/)) {
-	path = ''; // wikia.com
+if (server.match(/\.wikia\.org$/) || server.match(/\.fandom\.com$/)) {
+	path = ''; // wikia / fandom
 }
 else {
 	path = '/w'; // Wikipedia default
