@@ -7,6 +7,24 @@ Visualize evolution of your [MediaWiki](https://www.mediawiki.org/wiki/MediaWiki
 
 [![Download stats](https://nodei.co/npm/wiki-evolution.png?downloads=true&downloadRank=true)](https://nodei.co/npm/wiki-evolution/)
 
+## Docker-based run
+
+The easiest way to use this tool is via Docker:
+
+```
+docker pull ghcr.io/macbre/wiki-evolution:latest
+
+docker run --name=wiki-evolution --rm -it -v $(pwd)/data:/tmp/wiki-evolution ghcr.io/macbre/wiki-evolution:latest bash
+```
+
+And then inside the container run:
+
+```
+nobody@3e68fe7411f8:/opt/wiki-evolution# DEBUG=1 ./bin/wiki-evolution.sh <wiki domain>
+```
+
+Gource log files and the rendered webm movie will be stored in the `data/` directory on your host.
+
 ## Requirements
 
 * MediaWiki-based wiki
