@@ -11,3 +11,4 @@ COPY package-lock.json .
 RUN npm ci
 
 COPY . .
+USER nobody
