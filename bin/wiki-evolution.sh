@@ -5,7 +5,7 @@ echo "Generating wiki evolution for $wikiname..."
 echo
 
 gource --help | head -n 1
-avconv -V 2>&1 | head -n 2
+ffmpeg --help 2>&1 | head -n2
 
 echo
 
