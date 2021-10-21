@@ -23,6 +23,12 @@ sudo apt-get install gource ffmpeg xvfb
 
 should be enough on Debian-powered machines
 
+For MacOS run:
+
+```
+brew install gource ffmpeg
+```
+
 ## How to install and run it?
 
 ```
