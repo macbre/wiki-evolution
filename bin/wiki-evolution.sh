@@ -5,7 +5,7 @@ echo "Generating wiki evolution for $wikiname..."
 echo
 
 gource --help | head -n 1
-avconv -V 2>&1 | head -n 2
+ffmpeg --help 2>&1 | head -n2
 
 echo
 
@@ -64,7 +64,7 @@ nice -n 20 xvfb-run -a -s "-screen 0 $resolution""x16" gource \
 	-$resolution \
 	--output-ppm-stream - \
 	--output-framerate $fps \
-	$input | avconv -y -r $fps -f image2pipe -vcodec ppm -i - -b $bitrate $output
+	$input | ffmpeg -y -r $fps -f image2pipe -vcodec ppm -i - -b $bitrate $output
 
 echo
 echo "Done, enjoy!"

@@ -7,21 +7,45 @@ Visualize evolution of your [MediaWiki](https://www.mediawiki.org/wiki/MediaWiki
 
 [![Download stats](https://nodei.co/npm/wiki-evolution.png?downloads=true&downloadRank=true)](https://nodei.co/npm/wiki-evolution/)
 
+## Docker-based run
+
+The easiest way to use this tool is via Docker:
+
+```
+docker pull ghcr.io/macbre/wiki-evolution:latest
+
+docker run --name=wiki-evolution --rm -it -v $(pwd)/data:/tmp/wiki-evolution ghcr.io/macbre/wiki-evolution:latest bash
+```
+
+And then inside the container run:
+
+```
+nobody@3e68fe7411f8:/opt/wiki-evolution# DEBUG=1 ./bin/wiki-evolution.sh <wiki domain>
+```
+
+Gource log files and the rendered webm movie will be stored in the `data/` directory on your host.
+
 ## Requirements
 
 * MediaWiki-based wiki
 * [gource](https://github.com/acaudwell/Gource) for visualizing the history (will create a set of images)
-* [avconv](http://libav.org/avconv.html) to convert a set of images to a video file
+* [ffmpeg](https://www.ffmpeg.org/) to convert a set of images to a video file
 * [xvfb](http://www.x.org/releases/X11R7.6/doc/man/man1/Xvfb.1.xhtml) to run gource in a virtual X server environment
 * [nodejs](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager) with `npm` installed
 
 Running
 
 ```
-sudo apt-get install gource libav-tools xvfb
+sudo apt-get install gource ffmpeg xvfb
 ```
 
 should be enough on Debian-powered machines
+
+For MacOS run:
+
+```
+brew install gource ffmpeg
+```
 
 ## How to install and run it?
 
