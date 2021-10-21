@@ -11,14 +11,14 @@ Visualize evolution of your [MediaWiki](https://www.mediawiki.org/wiki/MediaWiki
 
 * MediaWiki-based wiki
 * [gource](https://github.com/acaudwell/Gource) for visualizing the history (will create a set of images)
-* [avconv](http://libav.org/avconv.html) to convert a set of images to a video file
+* [ffmpeg](https://www.ffmpeg.org/) to convert a set of images to a video file
 * [xvfb](http://www.x.org/releases/X11R7.6/doc/man/man1/Xvfb.1.xhtml) to run gource in a virtual X server environment
 * [nodejs](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager) with `npm` installed
 
 Running
 
 ```
-sudo apt-get install gource libav-tools xvfb
+sudo apt-get install gource ffmpeg xvfb
 ```
 
 should be enough on Debian-powered machines
