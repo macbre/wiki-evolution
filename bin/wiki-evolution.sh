@@ -37,7 +37,7 @@ echo
 # call wiki2gource
 if [ ! -f $input ]; then
 	echo "Calling wiki2gource..."
-	/usr/bin/env node $dir/wiki2gource.js $wikiname $EDITS_COMPRESSION | grep -E '\d+\|' | sort > $input
+	/usr/bin/env node $dir/wiki2gource.js $wikiname $EDITS_COMPRESSION | sort > $input
 else
 	echo "$input exists, remove to regenerate"
 fi
