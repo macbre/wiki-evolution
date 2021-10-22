@@ -20,7 +20,7 @@ docker run --name=wiki-evolution --rm -it -v $(pwd)/data:/tmp/wiki-evolution ghc
 And then inside the container run:
 
 ```
-nobody@3e68fe7411f8:/opt/wiki-evolution# DEBUG=1 ./bin/wiki-evolution.sh <wiki domain>
+nobody@3e68fe7411f8:/opt/wiki-evolution# ./bin/wiki-evolution.sh <wiki domain>
 ```
 
 Gource log files and the rendered webm movie will be stored in the `data/` directory on your host.
