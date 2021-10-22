@@ -49,14 +49,14 @@ echo
 # TODO: fetch custom backgrounds and logos
 
 # call gource
-nice -n 20 xvfb-run -a -s "-screen 0 $resolution""x16" gource \
+xvfb-run -a -s "-screen 0 $resolution""x16" gource \
 	--log-format custom \
 	--stop-at-end \
 	--seconds-per-day $seconds_per_day \
 	--auto-skip-seconds $auto_skip_seconds \
 	--elasticity $elasticity \
 	--highlight-users \
-	-b 000000 \
+	--background-colour 000000 \
 	--hide dirnames,progress,mouse \
 	--user-friction .2 \
 	--font-size 16 \
