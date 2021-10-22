@@ -1,6 +1,6 @@
 {
   "name": "wiki-evolution",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Visualize evolution of your MediaWiki based site",
   "main": "index.js",
   "engines": {
