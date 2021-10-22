@@ -56,7 +56,7 @@ xvfb-run -a -s "-screen 0 $resolution""x16" gource \
 	--auto-skip-seconds $auto_skip_seconds \
 	--elasticity $elasticity \
 	--highlight-users \
-	--background-colour 000000 \
+	--transparent \
 	--hide dirnames,progress,mouse \
 	--user-friction .2 \
 	--font-size 16 \
