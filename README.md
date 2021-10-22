@@ -1,11 +1,8 @@
 wiki-evolution
 ==============
+[![Node.js CI](https://github.com/macbre/wiki-evolution/actions/workflows/node.js.yml/badge.svg)](https://github.com/macbre/wiki-evolution/actions/workflows/node.js.yml)
 
 Visualize evolution of your [MediaWiki](https://www.mediawiki.org/wiki/MediaWiki) based site
-
-[![NPM version](https://badge.fury.io/js/wiki-evolution.png)](http://badge.fury.io/js/wiki-evolution)
-
-[![Download stats](https://nodei.co/npm/wiki-evolution.png?downloads=true&downloadRank=true)](https://nodei.co/npm/wiki-evolution/)
 
 ## Docker-based run
 
