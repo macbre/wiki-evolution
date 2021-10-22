@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/macbre/wiki-evolution",
   "dependencies": {
-    "async": "^0.9.0",
+    "async": "^3.2.1",
     "color": "^0.8.0",
     "nodemw": "^0.8.0"
   },
