@@ -31,7 +31,7 @@
   "dependencies": {
     "async": "^0.9.0",
     "color": "^4.0.1",
-    "nodemw": "^0.8.0"
+    "nodemw": "^0.15.0"
   },
   "devDependencies": {
     "jshint": "^2.6.3",
