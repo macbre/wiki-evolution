@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "Visualize evolution of your MediaWiki based site",
   "main": "index.js",
+  "engines": {
+    "node": ">=12.0"
+  },
   "bin": {
     "wiki-evolution": "bin/wiki-evolution.sh",
     "wiki2gource": "bin/wiki2gource.js"
