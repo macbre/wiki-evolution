@@ -56,7 +56,7 @@ xvfb-run -a -s "-screen 0 $resolution""x16" gource \
 	--auto-skip-seconds $auto_skip_seconds \
 	--elasticity $elasticity \
 	--highlight-users \
-	--transparent \
+	--background-colour 222222 \
 	--hide dirnames,progress,mouse \
 	--user-friction .2 \
 	--font-size 16 \
@@ -64,7 +64,7 @@ xvfb-run -a -s "-screen 0 $resolution""x16" gource \
 	-$resolution \
 	--output-ppm-stream - \
 	--output-framerate $fps \
-	$input | ffmpeg -y -r $fps -f image2pipe -vcodec ppm -i - -b $bitrate $output
+	$input | ffmpeg -y -r $fps -f image2pipe -vcodec ppm -i - -b:v $bitrate -vcodec libvpx $output
 
 echo
 echo "Done, enjoy!"
