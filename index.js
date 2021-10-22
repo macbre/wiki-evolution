@@ -59,7 +59,7 @@ function ColorsRanker(stats, from, to) {
 	this.articles = stats.articles;
 
 	this.edits_per_article = Math.ceil(this.edits / this.articles) * 2;
-	this.from = new Color(from || '#000000');
+	this.from = from || '#000000';
 	this.to = new Color(to || '#ffffff');
 }
 
@@ -70,8 +70,10 @@ function ColorsRanker(stats, from, to) {
  * @returns {string} RGB color (without a hash)
  */
 ColorsRanker.prototype.getColorForEdit = function(idx) {
+	const from = Color(this.from || '#000000');
+
 	var mix = Math.min(1, (idx + 1) / this.edits_per_article);
-	return this.from.clone().mix(this.to, mix).hexString().substring(1);
+	return from.mix(this.to, mix).hex().substring(1);
 };
 
 // public API
