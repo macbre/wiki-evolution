@@ -89,6 +89,8 @@ by [@drzejzi](https://github.com/Drzejzi). It's meant to be run standalone (i.e.
 
 ### Examples
 
+<img width="1267" alt="Screenshot 2021-10-28 at 12 25 07" src="https://user-images.githubusercontent.com/1929317/139246771-12842daa-e6bc-48fd-b9ed-d75fa55a6196.png">
+
 * [Poznań Wiki](https://www.youtube.com/watch?v=QE32HghV8-I)
 * [Inciclopedia](https://www.youtube.com/watch?v=-AsGVA3HlSU)
 * [German GTA Wiki](https://www.youtube.com/watch?v=a3NbIf3i36g)
