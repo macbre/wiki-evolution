@@ -15,7 +15,11 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x, 17.x]
+        # https://github.com/actions/setup-node?tab=readme-ov-file#supported-version-syntax
+        node-version:
+        - 'lts/iron' # 20.x
+        - 'lts/*'    # 22.x
+        - 'latest'   # 23.x
 
     steps:
     - uses: actions/checkout@v4
@@ -25,6 +29,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
 
-    - run: npm ci
+    - name: Install dependencies
+      run: |
+        node -v
+        npm ci
     - run: npm test
     - run: npm run lint
