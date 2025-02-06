@@ -17,8 +17,9 @@ jobs:
       matrix:
         # https://github.com/actions/setup-node?tab=readme-ov-file#supported-version-syntax
         node-version:
-        - 'lts/*'
-        - 'latest'
+        - 'lts/iron' # 20.x
+        - 'lts/*'    # 22.x
+        - 'latest'   # 23.x
 
     steps:
     - uses: actions/checkout@v2
