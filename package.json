@@ -4,7 +4,7 @@
   "description": "Visualize evolution of your MediaWiki based site",
   "main": "index.js",
   "engines": {
-    "node": ">=12.0"
+    "node": ">=20.0"
   },
   "bin": {
     "wiki-evolution": "bin/wiki-evolution.sh",
