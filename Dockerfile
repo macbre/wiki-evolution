@@ -1,5 +1,5 @@
 # https://hub.docker.com/_/node?tab=tags&page=1&name=slim
-FROM node:slim
+FROM node:lts-slim
 
 RUN apt-get update && \
 	apt-get install -y gource ffmpeg xvfb
