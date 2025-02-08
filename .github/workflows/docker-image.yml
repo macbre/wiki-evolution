@@ -1,0 +1,38 @@
+name: Check if a Docker image can be built
+
+on:
+  push:
+    branches: [ devel ]
+  pull_request:
+
+jobs:
+
+  build_docker_image:
+    runs-on: ubuntu-latest
+
+    timeout-minutes: 3
+
+    env:
+      DOCKER_TAG: ghcr.io/macbre/wiki-evolution:latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    # https://github.com/marketplace/actions/build-and-push-docker-images
+    - name: Build the Docker image with ${{ env.DOCKER_TAG }} tag
+      uses: docker/build-push-action@v6
+      with:
+        context: .
+        tags: ${{ env.DOCKER_TAG }}
+        build-args: |
+          GITHUB_SHA=${{ github.sha	}}
+        cache-from: |
+          ${{ env.DOCKER_TAG }}
+
+    - name: Inspect built image
+      run: |
+        docker images
+
+        docker run --rm ${{ env.DOCKER_TAG }} node -v
+        docker run --rm ${{ env.DOCKER_TAG }} gource --help | head -n1
+        docker run --rm ${{ env.DOCKER_TAG }} env | sort
