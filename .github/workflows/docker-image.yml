@@ -32,4 +32,7 @@ jobs:
     - name: Inspect built image
       run: |
         docker images
-        docker inspect --format='{{json .Config.Labels}}' ${{ env.DOCKER_TAG }} | jq
+
+        docker run --rm ${{ env.DOCKER_TAG }} node -v
+        docker run --rm ${{ env.DOCKER_TAG }} gource --help | head -n1
+        docker run --rm ${{ env.DOCKER_TAG }} env | sort
