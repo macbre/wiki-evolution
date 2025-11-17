@@ -4,7 +4,7 @@
 
 'use strict';
 
-var Color = require('color');
+const Color = require('color').default;
 
 /**
  * Categories ranker used to generate pseudo-path to articles based
